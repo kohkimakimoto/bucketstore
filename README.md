@@ -123,4 +123,3 @@ The MIT License (MIT)
 
 * documentation
 * tests
-* demo app
