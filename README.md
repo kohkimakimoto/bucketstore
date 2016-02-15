@@ -5,6 +5,15 @@ It is based on [Bolt](https://github.com/boltdb/bolt).
 
 **This software is in the development stage. The code and api may be changed drastically.**
 
+## Table of contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Data Model](#data-model)
+  * [Select items by using a query](#select-items-by-using-a-query)
+* [Author](#author)
+* [License](#license)
+
 ## Installation
 
 Run `go get`.
