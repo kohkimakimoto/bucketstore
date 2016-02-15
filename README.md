@@ -15,6 +15,8 @@ $ go get github.com/kohkimakimoto/bucketstore
 
 ## Usage
 
+The following code is an example to operate Bucketstore as a simple key/value store.
+
 ```go
 package main
 
