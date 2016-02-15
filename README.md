@@ -71,33 +71,15 @@ func main() {
 
 	bucket := db.Bucket("MyBucket")
 
-	// put data
-	err = bucket.PutRaw([]byte("user001"), []byte(`{"name": "hoge", "age": 20}`))
-	if err != nil {
-		panic(err)
-	}
-	err = bucket.PutRaw([]byte("user002"), []byte(`{"name": "foo", "age": 31}`))
-	if err != nil {
-		panic(err)
-	}
-	err = bucket.PutRaw([]byte("user003"), []byte(`{"name": "bar", "age": 18}`))
-	if err != nil {
-		panic(err)
-	}
-	err = bucket.PutRaw([]byte("user004"), []byte(`{"name": "aaa", "age": 40}`))
-	if err != nil {
-		panic(err)
-	}
-	err = bucket.PutRaw([]byte("user005"), []byte(`{"name": "xxx", "age": 41}`))
-	if err != nil {
-		panic(err)
-	}
-	err = bucket.PutRaw([]byte("user006"), []byte(`{"name": "ccc", "age": 50}`))
-	if err != nil {
-		panic(err)
-	}
+	// put data (ignore errors)
+	bucket.PutRaw([]byte("user001"), []byte(`{"name": "hoge", "age": 20}`))
+	bucket.PutRaw([]byte("user002"), []byte(`{"name": "foo", "age": 31}`))
+	bucket.PutRaw([]byte("user003"), []byte(`{"name": "bar", "age": 18}`))
+	bucket.PutRaw([]byte("user004"), []byte(`{"name": "aaa", "age": 40}`))
+	bucket.PutRaw([]byte("user005"), []byte(`{"name": "xxx", "age": 41}`))
+	bucket.PutRaw([]byte("user006"), []byte(`{"name": "ccc", "age": 50}`))
 
-	// query
+    // query
 	q := bucket.Query()
 	q.Filter = &bucketstore.PropValueRangeFilter{
 		Property: "age",
