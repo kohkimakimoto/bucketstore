@@ -53,9 +53,9 @@ func main() {
 
 Bucketstore has 3 data models and structures flexible datastore.
 
-* **Database**: The top-level object stores all buckets.
-* **Bucket**: Collection of items.
-* **Item**: key/value pair. The value is a JSON structured data.
+* **Database**: Database is the top-level object stores all buckets.
+* **Bucket**: Bucket is a collection of items.
+* **Item**: Items is a key/value pair. The value is a JSON structured data.
 
 
 ### Select items by using a query
