@@ -5,7 +5,7 @@ It is based on [Bolt](https://github.com/boltdb/bolt).
 
 **This software is in the development stage. The code and api may be changed drastically.**
 
-## Table of contents
+Table of contents
 
 * [Installation](#installation)
 * [Usage](#usage)
