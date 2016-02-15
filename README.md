@@ -66,7 +66,7 @@ Bucketstore has 3 data models and structures flexible datastore.
 
 * **Database**: Database is the top-level object stores all buckets.
 * **Bucket**: Bucket is a collection of items.
-* **Item**: Items is a key/value pair. The value is a JSON structured data.
+* **Item**: Items is a key/value pair. The value is a JSON structure data.
 
 
 ### Select items by using a query
