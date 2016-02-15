@@ -153,6 +153,15 @@ func (bucket *Bucket) NextSequence() (uint64, error) {
 	return next, err
 }
 
+func (bucket *Bucket) NextSequenceBytes() ([]byte, error) {
+	i, err := bucket.NextSequence()
+	if err != nil {
+		return nil, err
+	}
+
+	return Uint64ToBytes(i), nil
+}
+
 func (bucket *Bucket) BaseBucket() *BaseBucket {
 	return bucket.baseBucket
 }

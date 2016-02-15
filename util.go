@@ -35,13 +35,67 @@ const (
 )
 
 //
-// index key structure is the following
-// <valueType> + <value> + "0x00 0xFF" + <key>
+// # Index specification.
+//
+// ## index key structure
+//
+// The following byte slice is index key structure.
+//
+//   <valueType> + <value> + "0x00 0xFF" + <key>
+//
+// "0x00 0xFF" is a separator this spec reason is the below.
+//   0x00 is least byte pattern to match prefix string by seek.
+//   0xFF is not in the utf8 code.
+//
+// Example: true
+//  0x01 0x01 0x00 0xFF <key>
+//
+// Example: "abc"
+//  0x02 0x61 0x62 0x63 0x00 0xFF <key>
+//
+// Example: 1
+//  0x03 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x01 0x00 0xFF <key>
+//
+// ## Description
+//
+//  To search value using index, you can user IndexCursor that is the low level API.
+//  This cursor can move to the fist and last point matching bytes pattern in the specific property.
+//
+//  Example1)
+//    If you want to search items with "ab" prefix. IndexCoursor seek by the following bytes pattern.
+//
+//      0x02 0x61 0x62 0x00 0xFF
+//
+//    This bytes the below structure.
+//
+//      <valueType> + <value> + "0x00 0xFF"
+//
+//    If you have the "abc" value in your database like the above example this pattern is below.
+//
+//      0x02 0x61 0x62 0x63 0x00 0xFF
+//
+//    IndexCursor bytes pattern is "0x02 0x61 0x62 0x00 0xFF", so It moves to before "abc" "abd" "abb" etc...
+//    And It walks using "Next" method until not to match the prefix .
+//
+// Example2)
+//   If you want to search items with "ab" prefix descending order. IndexCoursor seek by the following bytes pattern.
+//
+//      0x02 0x61 0x62 0xFF 0xFF
+//
+//    This bytes the below structure.
+//
+//      <valueType> + <value> + "0xFF 0xFF"
+//
+//    If you have the "abc" value in your database like the above example this pattern is below.
+//
+//      0x02 0x61 0x62 0x63 0x00 0xFF
+//
+//    IndexCursor bytes pattern is "0x02 0x61 0x62 0xFF 0xFF", so It moves to after "abc" "abd" "abb" etc...
+//    For instance, cursor moves to "aca" that is the fist point after all matching pattern space.
+//    You should move one previous position that is the last matching point.
+//    It walks using "Prev" method until not to match the prefix.
 //
 
-// separator
-// 0x00 is least byte pattern to match prefix string by seek.
-// 0xFF is not in the utf8 code.
 const (
 	sep1         = 0x00
 	sep2         = 0xFF
