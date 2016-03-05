@@ -2,7 +2,7 @@ package bucketstore
 
 import (
 	"bytes"
-	"github.com/kohkimakimoto/bucketstore/vendor/bolt"
+	"github.com/kohkimakimoto/bucketstore/v/bolt"
 )
 
 type IndexCursor struct {

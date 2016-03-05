@@ -1,7 +1,7 @@
 package bucketstore
 
 import (
-	"github.com/kohkimakimoto/bucketstore/vendor/bolt"
+	"github.com/kohkimakimoto/bucketstore/v/bolt"
 )
 
 type Options struct {

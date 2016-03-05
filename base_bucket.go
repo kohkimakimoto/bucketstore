@@ -3,7 +3,7 @@ package bucketstore
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/kohkimakimoto/bucketstore/vendor/bolt"
+	"github.com/kohkimakimoto/bucketstore/v/bolt"
 	"strings"
 )
 

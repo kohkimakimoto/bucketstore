@@ -2,7 +2,7 @@ package bucketstore
 
 import (
 	"fmt"
-	"github.com/kohkimakimoto/bucketstore/vendor/bolt"
+	"github.com/kohkimakimoto/bucketstore/v/bolt"
 	"io"
 	"os"
 )
