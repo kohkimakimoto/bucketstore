@@ -24,9 +24,11 @@ destroy:
 	@cd shell && $(MAKE) $@
 
 test:
+	cd shell && go get && cd -
 	go test . ./shell/... -cover
 
 testv:
+	cd shell && go get && cd -
 	go test . ./shell/... -v
 
 deps:
