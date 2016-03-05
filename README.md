@@ -1,5 +1,7 @@
 # Bucketstore
 
+[![Build Status](https://travis-ci.org/kohkimakimoto/bucketstore.svg)](https://travis-ci.org/kohkimakimoto/bucketstore)
+
 Bucketstore is a pure Go embedded database engine to store JSON structure data.
 It is based on [Bolt](https://github.com/boltdb/bolt).
 
